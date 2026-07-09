@@ -1,6 +1,6 @@
-package com.saksham.therage.event;
+package com.gamerofpro.therage.event;
 
-import com.saksham.therage.manager.HeadlessManager;
+import com.gamerofpro.therage.manager.HeadlessManager;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
