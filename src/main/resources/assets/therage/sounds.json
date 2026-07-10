@@ -1,0 +1,10 @@
+{
+  "menu_theme": {
+    "sounds": [
+      {
+        "name": "therage:th",
+        "stream": true
+      }
+    ]
+  }
+}
