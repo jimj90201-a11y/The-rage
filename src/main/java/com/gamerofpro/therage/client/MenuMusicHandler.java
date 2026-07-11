@@ -2,14 +2,15 @@ package com.gamerofpro.therage.client;
 
 import com.gamerofpro.therage.registry.ModSounds;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.sounds.SoundSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class MenuMusicHandler {
 
     private static boolean playing = false;
@@ -20,13 +21,30 @@ public class MenuMusicHandler {
 
         if (event.getScreen() instanceof TitleScreen) {
             if (!playing) {
-                mc.getSoundManager().play(
-                        SimpleSoundInstance.forUI(ModSounds.TH.get(), 1.0F)
-                );
                 playing = true;
+
+                mc.getSoundManager().play(
+                        new SimpleSoundInstance(
+                                ModSounds.TH.get(),
+                                SoundSource.MUSIC,
+                                1.0F,
+                                1.0F,
+                                mc.level == null ? mc.level.random : net.minecraft.util.RandomSource.create(),
+                                true,
+                                0,
+                                net.minecraft.client.resources.sounds.SoundInstance.Attenuation.NONE,
+                                0,
+                                0,
+                                0,
+                                false
+                        )
+                );
             }
         } else {
-            playing = false;
+            if (playing) {
+                playing = false;
+                mc.getSoundManager().stop(ModSounds.TH.get().getLocation(), SoundSource.MUSIC);
+            }
         }
     }
 }
