@@ -25,7 +25,7 @@ public class MenuMusicHandler {
 
                 mc.getSoundManager().play(
                         new SimpleSoundInstance(
-                                ModSounds.TH.get(),
+                                ModSounds.TH.get().getLocation(),
                                 SoundSource.MUSIC,
                                 1.0F,
                                 1.0F,
