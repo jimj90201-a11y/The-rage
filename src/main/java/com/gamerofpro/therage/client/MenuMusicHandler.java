@@ -5,12 +5,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = "therage", value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MenuMusicHandler {
 
     private static boolean playing = false;
@@ -29,13 +30,13 @@ public class MenuMusicHandler {
                                 SoundSource.MUSIC,
                                 1.0F,
                                 1.0F,
-                                mc.level == null ? mc.level.random : net.minecraft.util.RandomSource.create(),
+                                RandomSource.create(),
                                 true,
                                 0,
                                 net.minecraft.client.resources.sounds.SoundInstance.Attenuation.NONE,
-                                0,
-                                0,
-                                0,
+                                0.0,
+                                0.0,
+                                0.0,
                                 false
                         )
                 );
