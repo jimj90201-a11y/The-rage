@@ -26,7 +26,7 @@ public class MenuMusicHandler {
 
                 mc.getSoundManager().play(
                         new SimpleSoundInstance(
-                                ModSounds.TH.get().getLocation(),
+                                ModSounds.MENU_THEME.get().getLocation(),
                                 SoundSource.MUSIC,
                                 1.0F,
                                 1.0F,
@@ -44,7 +44,7 @@ public class MenuMusicHandler {
         } else {
             if (playing) {
                 playing = false;
-                mc.getSoundManager().stop(ModSounds.TH.get().getLocation(), SoundSource.MUSIC);
+                mc.getSoundManager().stop(ModSounds.MENU_THEME.get().getLocation(), SoundSource.MUSIC);
             }
         }
     }
