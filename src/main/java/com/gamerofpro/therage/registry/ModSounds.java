@@ -12,9 +12,8 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, TheRage.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> TH =
-            SOUND_EVENTS.register("th",
+    public static final RegistryObject<SoundEvent> MENU_THEME =
+            SOUND_EVENTS.register("menu_theme",
                     () -> SoundEvent.createVariableRangeEvent(
-                            new ResourceLocation(TheRage.MOD_ID, "th")));
-
+                            new ResourceLocation(TheRage.MOD_ID, "menu_theme")));
 }
